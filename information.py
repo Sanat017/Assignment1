@@ -2,7 +2,7 @@ from flask import Flask ,jsonify,json,request,make_response,render_template
 from flask_pymongo import PyMongo
 app=Flask(__name__)
 app.config['MONGO_DBNAME']= 'user_information'
-app.config['MONGO_URI']= 'mongodb://sanatkabi:sanat123@ds145669.mlab.com:45669/user_information'
+app.config['MONGO_URI']= 'mongodb://abcd:adcd@123ds145669.mlab.com:45669/user_information'
 mongo= PyMongo(app)
 @app.route('/user',methods=['POST'])
 def create_user():
@@ -13,7 +13,7 @@ def create_user():
     branch = request.json['branch']
     info= user.find_one({'rollno':rollno})
     if info:
-        message = "Roll no. already Exist"
+     
         response = make_response(json.dumps({'message':'Roll no already exist!!!'}), 406)
         response.headers['Content-Type'] = 'application/json'
         return response
